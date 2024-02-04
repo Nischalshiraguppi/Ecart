@@ -59,7 +59,7 @@ namespace EcartProj.Controllers
 			{
 				_db.categories.Update(category);
 				_db.SaveChanges();
-				TempData["success"] = "Category Edited";
+				TempData["error"] = "Category Edited";
 				return RedirectToAction("Index");
 			}
 			return View();
@@ -88,7 +88,7 @@ namespace EcartProj.Controllers
 			}
 			_db.categories.Remove(category);
 			_db.SaveChanges();
-			TempData["success"] = "Category Deleted";
+			TempData["error"] = "Category Deleted";
 			return RedirectToAction("Index");
 
 		}
