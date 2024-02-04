@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EcartProj", "EcartProj\EcartProj.csproj", "{751E8078-361C-4F91-9EAC-913ABC621442}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EcartProj", "EcartProj\EcartProj.csproj", "{751E8078-361C-4F91-9EAC-913ABC621442}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EcartRazorProj", "EcartRazorProj\EcartRazorProj.csproj", "{A06E7F3D-9994-43D7-882B-D38D8F286FD8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{751E8078-361C-4F91-9EAC-913ABC621442}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{751E8078-361C-4F91-9EAC-913ABC621442}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{751E8078-361C-4F91-9EAC-913ABC621442}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A06E7F3D-9994-43D7-882B-D38D8F286FD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A06E7F3D-9994-43D7-882B-D38D8F286FD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A06E7F3D-9994-43D7-882B-D38D8F286FD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A06E7F3D-9994-43D7-882B-D38D8F286FD8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
