@@ -1,4 +1,4 @@
-using EcartProj.Data;
+using Ecart.DataAccess.Data;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);

@@ -1,5 +1,5 @@
-﻿using EcartProj.Data;
-using EcartProj.Models;
+﻿using Ecart.DataAccess.Data;
+using Ecart.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EcartProj.Controllers
@@ -82,6 +82,8 @@ namespace EcartProj.Controllers
 		public IActionResult DeletePost(int? id)
 		{
 			Category? category = _db.categories.Find(id);
+			//Category category1 = _db.categories.FirstOrDefault(u=>u.Id==id);
+			//Category category2 = _db.categories.Where(u => u.Id == id).FirstOrDefault();
 			if (category == null)
 			{
 				return NotFound();

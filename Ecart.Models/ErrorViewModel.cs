@@ -1,4 +1,5 @@
-namespace EcartProj.Models
+namespace Ecart.Models
+
 {
     public class ErrorViewModel
     {

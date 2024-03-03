@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace EcartProj.Migrations
+namespace Ecart.DataAccess.Migrations
 {
     /// <inheritdoc />
     public partial class AddCategoryTableToDb : Migration

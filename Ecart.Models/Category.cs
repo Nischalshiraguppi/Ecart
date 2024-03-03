@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
-namespace EcartProj.Models
+namespace Ecart.Models
 {
     public class Category
     {

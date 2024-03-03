@@ -10,7 +10,10 @@ namespace EcartRazorProj.Pages.Categories
     {
 		private readonly ApplicationDbContext _db;
 		public Category category { get; set; }
-		public DeleteModel(ApplicationDbContext db) => _db = db;
+		public DeleteModel(ApplicationDbContext db)
+		{
+			_db = db;
+		}
 
 		public void OnGet(int? id)
 		{

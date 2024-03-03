@@ -1,7 +1,7 @@
-﻿using EcartProj.Models;
+﻿using Ecart.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace EcartProj.Data
+namespace Ecart.DataAccess.Data
 {
     public class ApplicationDbContext: DbContext
     {
