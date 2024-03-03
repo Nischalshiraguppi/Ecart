@@ -1,4 +1,5 @@
 ﻿using Ecart.DataAccess.Data;
+using Ecart.DataAccess.Repository.IRepository;
 using Ecart.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -6,15 +7,15 @@ namespace EcartProj.Controllers
 {
 	public class CategoryController : Controller
 	{
-		private readonly ApplicationDbContext _db;
-		public CategoryController(ApplicationDbContext db)
+		private readonly ICategoryRepo categoryRepo;
+		public CategoryController(ICategoryRepo db)
 		{
-			_db = db;
+			categoryRepo = db;
 		}
 
 		public IActionResult Index()
 		{
-			List<Category> db = _db.categories.ToList();
+			List<Category> db = categoryRepo.GetAll().ToList();
 			return View(db);
 		}
 		public IActionResult Create()
@@ -30,8 +31,8 @@ namespace EcartProj.Controllers
 			}
 			if (ModelState.IsValid)
 			{
-				_db.categories.Add(category);
-				_db.SaveChanges();
+				categoryRepo.Add(category);
+				categoryRepo.Save();
 				TempData["success"] = "Category Created";
 				return RedirectToAction("Index");
 			}
@@ -44,7 +45,7 @@ namespace EcartProj.Controllers
 			{
 				return NotFound();
 			}
-			Category? categoryFromDb = _db.categories.Find(id);
+			Category? categoryFromDb = categoryRepo.Get(u=>u.Id==id);
 			if (categoryFromDb == null)
 			{
 				return NotFound();
@@ -57,21 +58,21 @@ namespace EcartProj.Controllers
 
 			if (ModelState.IsValid)
 			{
-				_db.categories.Update(category);
-				_db.SaveChanges();
+				categoryRepo.Update(category);
+				categoryRepo.Save();
 				TempData["error"] = "Category Edited";
 				return RedirectToAction("Index");
 			}
 			return View();
 
 		}
-		public IActionResult Delete(int? id)
+		public IActionResult Delete(int? id)   
 		{
 			if (id == null || id == 0)
 			{
 				return NotFound();
 			}
-			Category? categoryFromDb = _db.categories.Find(id);
+			Category? categoryFromDb = categoryRepo.Get(u => u.Id == id);
 			if (categoryFromDb == null)
 			{
 				return NotFound();
@@ -81,15 +82,15 @@ namespace EcartProj.Controllers
 		[HttpPost, ActionName("Delete")]
 		public IActionResult DeletePost(int? id)
 		{
-			Category? category = _db.categories.Find(id);
+			Category? category = categoryRepo.Get(u => u.Id == id);
 			//Category category1 = _db.categories.FirstOrDefault(u=>u.Id==id);
 			//Category category2 = _db.categories.Where(u => u.Id == id).FirstOrDefault();
 			if (category == null)
 			{
 				return NotFound();
 			}
-			_db.categories.Remove(category);
-			_db.SaveChanges();
+			categoryRepo.Remove(category);
+			categoryRepo.Save();
 			TempData["error"] = "Category Deleted";
 			return RedirectToAction("Index");
 
