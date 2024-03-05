@@ -1,26 +1,27 @@
 ﻿using Ecart.DataAccess.Data;
 using Ecart.DataAccess.Repository.IRepository;
-using Ecart.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Ecart.DataAccess.Repository
 {
-	public class CategoryRepo : Repository<Category>, ICategoryRepo
+	public class UnitOfWork : IUnitOfWork
 	{
 		private readonly ApplicationDbContext _db;
-		public CategoryRepo(ApplicationDbContext db) : base(db) 
-		{
-			_db = db; 
+		public ICategoryRepo CategoryRepo { get; private set; }
+		public UnitOfWork(ApplicationDbContext db)
+		{ 
+			_db = db;
+			CategoryRepo= new CategoryRepo(_db);
 		}
 		
-		public void Update(Category category)
+
+		public void Save()
 		{
-			_db.Update(category);
+			_db.SaveChanges();
 		}
 	}
 }

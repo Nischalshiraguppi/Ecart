@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
-namespace EcartProj.Controllers
+namespace EcartProj.Areas.Customer.Controllers
 {
     public class HomeController : Controller
     {
